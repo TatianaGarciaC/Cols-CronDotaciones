@@ -1,0 +1,442 @@
+[
+  {
+    "columnaId": 0,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 1,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 2,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 3,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 4,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 5,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 6,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 7,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 8,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 9,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 10,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 11,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 12,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 13,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 14,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 15,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 16,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 17,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 18,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 19,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 20,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 21,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 22,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 23,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 24,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 25,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 26,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 27,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 28,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 29,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 30,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 31,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 32,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 33,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 34,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 35,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 36,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 37,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 38,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 39,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 40,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 41,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 42,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 43,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 44,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 45,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 46,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 47,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 48,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 49,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 50,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 51,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 52,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 53,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  },
+  {
+    "columnaId": 54,
+    "columnaNombre": "",
+    "tipo": "String",
+    "min": 0,
+    "max": 500,
+    "required": false
+  }
+]

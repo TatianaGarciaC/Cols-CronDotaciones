@@ -1,0 +1,127 @@
+2022-10-05 00:01:39,690 INFO [HikariDataSource.close.350] HikariPool-1 - Shutdown initiated...
+2022-10-05 00:01:39,693 INFO [HikariDataSource.close.352] HikariPool-1 - Shutdown completed.
+2022-10-05 00:01:43,092 INFO [Http11NioProtocol.log.173] Initializing ProtocolHandler ["http-nio-8093"]
+2022-10-05 00:01:43,093 INFO [StandardService.log.173] Starting service [Tomcat]
+2022-10-05 00:01:43,094 INFO [StandardEngine.log.173] Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-10-05 00:01:43,205 INFO [[/].log.173] Initializing Spring embedded WebApplicationContext
+2022-10-05 00:01:43,331 INFO [HikariDataSource.getConnection.110] HikariPool-1 - Starting...
+2022-10-05 00:01:44,661 INFO [HikariDataSource.getConnection.123] HikariPool-1 - Start completed.
+2022-10-05 00:01:48,664 INFO [Http11NioProtocol.log.173] Starting ProtocolHandler ["http-nio-8093"]
+2022-10-05 00:02:02,070 INFO [HikariDataSource.close.350] HikariPool-1 - Shutdown initiated...
+2022-10-05 00:02:02,072 INFO [HikariDataSource.close.352] HikariPool-1 - Shutdown completed.
+2022-10-05 00:23:01,376 INFO [Http11NioProtocol.log.173] Initializing ProtocolHandler ["http-nio-8093"]
+2022-10-05 00:23:01,378 INFO [StandardService.log.173] Starting service [Tomcat]
+2022-10-05 00:23:01,378 INFO [StandardEngine.log.173] Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-10-05 00:23:01,483 INFO [[/].log.173] Initializing Spring embedded WebApplicationContext
+2022-10-05 00:23:01,601 INFO [HikariDataSource.getConnection.110] HikariPool-1 - Starting...
+2022-10-05 00:23:02,708 INFO [HikariDataSource.getConnection.123] HikariPool-1 - Start completed.
+2022-10-05 00:23:07,917 INFO [Http11NioProtocol.log.173] Starting ProtocolHandler ["http-nio-8093"]
+2022-10-05 00:23:56,893 INFO [HikariDataSource.close.350] HikariPool-1 - Shutdown initiated...
+2022-10-05 00:23:56,894 INFO [HikariDataSource.close.352] HikariPool-1 - Shutdown completed.
+2022-10-05 00:24:00,629 INFO [Http11NioProtocol.log.173] Initializing ProtocolHandler ["http-nio-8093"]
+2022-10-05 00:24:00,631 INFO [StandardService.log.173] Starting service [Tomcat]
+2022-10-05 00:24:00,631 INFO [StandardEngine.log.173] Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-10-05 00:24:00,741 INFO [[/].log.173] Initializing Spring embedded WebApplicationContext
+2022-10-05 00:24:00,891 INFO [HikariDataSource.getConnection.110] HikariPool-1 - Starting...
+2022-10-05 00:24:03,409 INFO [HikariDataSource.getConnection.123] HikariPool-1 - Start completed.
+2022-10-05 00:24:07,002 INFO [Http11NioProtocol.log.173] Starting ProtocolHandler ["http-nio-8093"]
+2022-10-05 00:25:52,987 INFO [[/].log.173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-05 00:26:03,172 INFO [HikariDataSource.close.350] HikariPool-1 - Shutdown initiated...
+2022-10-05 00:26:03,173 INFO [HikariDataSource.close.352] HikariPool-1 - Shutdown completed.
+2022-10-05 02:18:01,015 INFO [Http11NioProtocol.log.173] Initializing ProtocolHandler ["http-nio-8093"]
+2022-10-05 02:18:01,016 INFO [StandardService.log.173] Starting service [Tomcat]
+2022-10-05 02:18:01,017 INFO [StandardEngine.log.173] Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-10-05 02:18:01,125 INFO [[/].log.173] Initializing Spring embedded WebApplicationContext
+2022-10-05 02:18:01,284 INFO [HikariDataSource.getConnection.110] HikariPool-1 - Starting...
+2022-10-05 02:18:05,178 INFO [HikariDataSource.getConnection.123] HikariPool-1 - Start completed.
+2022-10-05 02:18:10,685 INFO [HikariDataSource.close.350] HikariPool-1 - Shutdown initiated...
+2022-10-05 02:18:11,553 INFO [HikariDataSource.close.352] HikariPool-1 - Shutdown completed.
+2022-10-05 02:19:25,986 INFO [Http11NioProtocol.log.173] Initializing ProtocolHandler ["http-nio-8093"]
+2022-10-05 02:19:25,988 INFO [StandardService.log.173] Starting service [Tomcat]
+2022-10-05 02:19:25,988 INFO [StandardEngine.log.173] Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-10-05 02:19:26,097 INFO [[/].log.173] Initializing Spring embedded WebApplicationContext
+2022-10-05 02:19:26,228 INFO [HikariDataSource.getConnection.110] HikariPool-1 - Starting...
+2022-10-05 02:19:28,600 INFO [HikariDataSource.getConnection.123] HikariPool-1 - Start completed.
+2022-10-05 02:19:33,645 INFO [Http11NioProtocol.log.173] Starting ProtocolHandler ["http-nio-8093"]
+2022-10-05 02:20:09,445 INFO [HikariDataSource.close.350] HikariPool-1 - Shutdown initiated...
+2022-10-05 02:20:09,446 INFO [HikariDataSource.close.352] HikariPool-1 - Shutdown completed.
+2022-10-05 12:43:40,979 INFO [Http11NioProtocol.log.173] Initializing ProtocolHandler ["http-nio-8093"]
+2022-10-05 12:43:40,980 INFO [StandardService.log.173] Starting service [Tomcat]
+2022-10-05 12:43:40,981 INFO [StandardEngine.log.173] Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-10-05 12:43:41,115 INFO [[/].log.173] Initializing Spring embedded WebApplicationContext
+2022-10-05 12:43:41,243 INFO [HikariDataSource.getConnection.110] HikariPool-1 - Starting...
+2022-10-05 12:44:12,283 ERROR [HikariPool.throwPoolInitializationException.594] HikariPool-1 - Exception during pool initialization.
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host 192.168.50.75, port 1433 has failed. Error: "Connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:228)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:279)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2423)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2419)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2082)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:1929)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1141)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:735)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:330)
+	at org.springframework.boot.jdbc.EmbeddedDatabaseConnection.isEmbedded(EmbeddedDatabaseConnection.java:184)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateDefaultDdlAutoProvider.getDefaultDdlAuto(HibernateDefaultDdlAutoProvider.java:42)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration.lambda$getVendorProperties$1(HibernateJpaConfiguration.java:130)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings.getDdlAuto(HibernateSettings.java:41)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.determineDdlAuto(HibernateProperties.java:143)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.getAdditionalProperties(HibernateProperties.java:103)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.determineHibernateProperties(HibernateProperties.java:95)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration.getVendorProperties(HibernateJpaConfiguration.java:132)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.entityManagerFactory(JpaBaseConfiguration.java:132)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.colsubsidio.dotaciones.scheduled.ScheduledApplication.main(ScheduledApplication.java:31)
+2022-10-05 12:44:12,508 INFO [HikariDataSource.getConnection.110] HikariPool-1 - Starting...
+2022-10-05 12:44:35,506 INFO [HikariDataSource.getConnection.123] HikariPool-1 - Start completed.
+2022-10-05 12:44:36,954 INFO [Http11NioProtocol.log.173] Starting ProtocolHandler ["http-nio-8093"]
+2022-10-05 12:44:43,376 INFO [HikariDataSource.close.350] HikariPool-1 - Shutdown initiated...
+2022-10-05 12:44:43,377 INFO [HikariDataSource.close.352] HikariPool-1 - Shutdown completed.
+2022-10-05 12:45:14,503 INFO [Http11NioProtocol.log.173] Initializing ProtocolHandler ["http-nio-8093"]
+2022-10-05 12:45:14,504 INFO [StandardService.log.173] Starting service [Tomcat]
+2022-10-05 12:45:14,505 INFO [StandardEngine.log.173] Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-10-05 12:45:14,636 INFO [[/].log.173] Initializing Spring embedded WebApplicationContext
+2022-10-05 12:45:14,772 INFO [HikariDataSource.getConnection.110] HikariPool-1 - Starting...
+2022-10-05 12:45:15,045 INFO [HikariDataSource.getConnection.123] HikariPool-1 - Start completed.
+2022-10-05 12:45:16,648 INFO [Http11NioProtocol.log.173] Starting ProtocolHandler ["http-nio-8093"]
+2022-10-05 12:48:00,455 INFO [HikariDataSource.close.350] HikariPool-1 - Shutdown initiated...
+2022-10-05 12:48:00,456 INFO [HikariDataSource.close.352] HikariPool-1 - Shutdown completed.
+2022-10-05 12:48:13,396 INFO [Http11NioProtocol.log.173] Initializing ProtocolHandler ["http-nio-8093"]
+2022-10-05 12:48:13,398 INFO [StandardService.log.173] Starting service [Tomcat]
+2022-10-05 12:48:13,398 INFO [StandardEngine.log.173] Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-10-05 12:48:13,535 INFO [[/].log.173] Initializing Spring embedded WebApplicationContext
+2022-10-05 12:48:13,665 INFO [HikariDataSource.getConnection.110] HikariPool-1 - Starting...
+2022-10-05 12:48:13,971 INFO [HikariDataSource.getConnection.123] HikariPool-1 - Start completed.
+2022-10-05 12:48:15,562 INFO [Http11NioProtocol.log.173] Starting ProtocolHandler ["http-nio-8093"]

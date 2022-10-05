@@ -1,0 +1,162 @@
+server:
+  port: 8093
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://192.168.50.75:1433;database=DotacionesQA;encrypt=false;trustServerCertificate=false;integratedSecurity=false;loginTimeout=30
+    username: pasarela
+    password: pasarela2020!   
+  main: 
+    allow-bean-definition-overriding: true   
+  jpa:
+    show-sql: false
+    hibernate: 
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+      naming:
+       physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate: 
+        default_schema: Dotaciones.dbo
+apigee:
+  url: https://colsubsidio-prod.apigee.net
+  token:
+    clienteId: CDACAwwmtH9Jh7k8IX6A5djOoUiCZSMg
+    clienteSecreto: laLLw4AAhq390uIZ
+  path:
+    auth: /oauth/client_credential/accesstoken
+    logger: /api/v2/tecnologia/empleados/auth
+
+api:
+  enviroment: prod
+  database:
+    query:
+      queryUserZh: select count(1) from zh where Usuario =:usuario
+      queryUserZhGestor: select indPermiteGestion from zh where Usuario =:usuario
+      queryDotacion: select count(1) from Reporte_Dotacion where Usuario =:usuario
+      queryUserAdmin: select   ua.Usuario ,  (select STUFF((SELECT CAST(';' AS varchar(MAX)) + r.nombre from RolesxUsuario ru inner join Roles r on  (r.id = ru.idRol) WHERE ru.Usuario = :usuario FOR XML PATH('')), 1, 1, '') as roles) as roles from ZH ua inner join RolesxUsuario ru on ( ua.Usuario = ru.Usuario)  inner join Roles r  on ( r.id = ru.idRol)  where ua.Usuario = :usuario  group by ua.Usuario
+      queryUserData: select zh.estado, UnidadEstrategica uesNombre, UE.idUes, cargo, idDeCargo idCargo, noDocumento, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, fechaDeIngreso fechaIngreso, indPermiteGestion permiteGestion, zh.usuario username,zh.Regional as regional, zh.TipodeVinculo as tipodeVinculo, zh.CeCoOperativo as centrodeCosto from zh inner join Ues UE on zh.UnidadEstrategica = UE.Nombre where zh.usuario = :usuario
+      querySedes: WITH Tabla as (SELECT DISTINCT Sede, Clima FROM [dbo].[Sede_Ues] su) SELECT Sede nombreSede, (SELECT top 1 [IdSede] FROM [dbo].[Sede_Ues] SU WHERE SU.Sede = tabla.Sede) as idSede, clima, '' direccion, 0 idUes from Tabla order by sede asc
+      queryTallas: SELECT  D.idDotacion , D.Nombre nombreDotacion, T.idTalla ,T.Nombre nombreTalla  from [dbo].[Ues_Uniforme_Cargo_Dotacion] uucd inner join [dbo].[Ues_Uniforme_Cargo] uuc on uuc.Id_Ues_Uniforme_cargo = uucd.Id_Ues_Uniforme_cargo inner join [dbo].[Ues_Uniforme] uni on uni.Id_Ues_Uniforme = uuc.Id_Ues_Uniforme inner JOIN [dbo].[Ues] U ON U.IdUES = uni.IdUes inner JOIN [dbo].[Uniforme] Un ON UN.IdUniforme = uni.IdUniforme inner join [dbo].[Cargo] C ON C.IdCargo = UUC.IdCargo INNER JOIN [dbo].[Dotacion] D ON D.IdDotacion = uucd.IdDotacion inner join [dbo].[Talla_Dotacion] td on td.IdDotacion =D.IdDotacion inner join [dbo].[Talla] t on t.IdTalla = td.idtalla WHERE C.idCargo = :idCargo and D.Genero =:genero and  D.Clima =:clima  and U.IdUES = :idUes
+      queryTallasByDocumento: select DISTINCT DT.IdDotacion, DT.Nombre as nombreDotacion, TL.IdTalla, TL.Nombre as nombreTalla from UsuarioDotacion UD, Talla_Dotacion TD, Talla TL, Dotacion DT where UD.idPosicion=:idPosicion AND UD.IdDotacion=DT.IdDotacion AND TD.IdDotacion=DT.IdDotacion AND TD.IdTalla=TL.IdTalla
+      getQueryUserDataCedula:  select zh.Estado, zh.IdPosicion, zh.UnidadEstrategica as uesNombre, UE.idUes, zh.cargo, zh.idDeCargo as idCargo, zh.noDocumento, zh.primerNombre, zh.segundoNombre, zh.primerApellido, zh.segundoApellido, zh.genero, zh.fechaDeIngreso as fechaIngreso, zh.indPermiteGestion as permiteGestion, zh.usuario as username, zh.Regional as regional, zh.TipodeVinculo as tipodeVinculo, zh.CeCoOperativo as centrodeCosto from zh inner join Ues UE on zh.UnidadEstrategica = UE.Nombre where zh.noDocumento = :cedula
+      empleados:
+        all: SELECT DISTINCT NoDocumento AS Documento, CONCAT(NoDocumento, ' - ', PrimerApellido, ' ', SegundoApellido, ', ', PrimerNombre, ' ', SegundoNombre) AS TextoBusqueda, CONCAT(PrimerApellido, ' ', SegundoApellido, ', ', PrimerNombre, ' ', SegundoNombre) AS NombreCompleto, Cargo, Genero FROM ZH
+        byDocumento: SELECT DISTINCT NoDocumento AS Documento,IdPosicion,Posicion, CONCAT(NoDocumento, ' - ', PrimerApellido, ' ', SegundoApellido, ', ', PrimerNombre, ' ', SegundoNombre) AS TextoBusqueda, CONCAT(PrimerApellido, ' ', SegundoApellido, ', ', PrimerNombre, ' ', SegundoNombre) AS NombreCompleto, Cargo, Genero FROM ZH WHERE IdPosicion=:IdPosicion
+      cargos:
+        all: SELECT IdCargo, Nombre , FechaRegistro, FechaModificacion, Estado, Usuario from Cargo order by Nombre
+        allByUesUniforme: select ca.IdCargo, ca.Nombre from Cargo ca, Ues_Uniforme_Cargo uuc, Ues_Uniforme uu where uuc.IdCargo = ca.IdCargo and uuc.Id_Ues_Uniforme = uu.Id_Ues_Uniforme and uu.IdUniforme = :idUniforme and uu.IdUes = :idUes
+      ues:
+        all: SELECT IdUES, Nombre, FechaRegistro, FechaModificacion, Estado, Usuario  FROM Ues order by Nombre
+      dotaciones:
+        all: SELECT IdDotacion, Nombre, Clima, Genero, Estado, UserName, FechaActualizacion FROM Dotacion WHERE Estado!='BORRADO' order by Nombre
+      tallas:
+        all: select tl.IdTalla, tl.Nombre, tl.Estado from talla tl order by tl.Nombre
+        byDotacion: select td.IdDotacion, tl.IdTalla, tl.Nombre, td.disponible from talla tl, Talla_Dotacion td where tl.IdTalla=td.IdTalla and td.IdDotacion=:idDotacion order by td.FechaCreacion desc
+      sedesUes:
+        all: SELECT su.IdSede as  idSede, su.IdUes as idUes , u.Nombre as nombreUes , su.Sede as sede, su.Ciudad as ciudad,  su.Direccion as direccion ,  su.FechaRegistro as fechaRegistro,  su.Clima as clima, su.Estado  as estado , su.FechaModificacion as fechaModificacion , su.Usuario as usuario from Sede_Ues su  INNER JOIN Ues u on ( u.IdUES = su.IdUes) ORDER BY su.Sede ASC
+        byIdUes: SELECT su.IdSede as idSede, su.IdUes as idUes , u.Nombre as nombreUes , su.Sede as sede, su.Ciudad as ciudad, su.Direccion as direccion , su.FechaRegistro as fechaRegistro, su.Clima as clima, su.Estado as estado , su.FechaModificacion as fechaModificacion , su.Usuario as usuario from Sede_Ues su INNER JOIN Ues u on ( u.IdUES = su.IdUes) AND u.IdUES = :idUes ORDER BY su.Sede ASC
+      personalizaciones:
+        all: select distinct u.idPosicion, concat(z.PrimerApellido, ' ', z.SegundoApellido, ', ', z.PrimerNombre, ' ', z.SegundoNombre) as Nombre, z.Cargo, z.Genero, z.IdPosicion, z.posicion from UsuarioDotacion u, ZH z, Dotacion d where u.IdPosicion=z.IdPosicion and d.IdDotacion=u.IdDotacion
+        byDocumento: select d.IdDotacion, concat(d.Nombre,', ', d.Clima, ', ', d.Genero) as Nombre from UsuarioDotacion u, ZH z, Dotacion d where u.IdPosicion = z.IdPosicion and d.IdDotacion = u.IdDotacion and u.IdPosicion = :documento
+      uniforme:
+       all: SELECT Estado as estado , IdUniforme as idUniforme , FechaModificacion as fechaModificacion, FechaRegistro as fechaRegistro , Nombre as nombre , Usuario as usuario FROM Uniforme u order by Nombre
+       allByUes: select un.IdUniforme, un.Nombre from Ues_Uniforme uu, Uniforme un where uu.IdUniforme= un.IdUniforme and uu.IdUes=:idUes
+      ues_personalizada:
+        findAll: select u.Nombre as UES, u.IdUES, un.Nombre as Uniforme, un.IdUniforme, c.Nombre as Cargo ,c.IdCargo, d.Nombre as dotacion, d.Genero, d.Clima from [dbo].[Ues] as u inner join [dbo].[Ues_Uniforme] uu on uu.IdUes = u.IdUES inner join [dbo].[Uniforme] un on un.IdUniforme = uu.IdUniforme inner join [dbo].[Ues_Uniforme_Cargo] uuc on uuc.Id_Ues_Uniforme = uu.Id_Ues_Uniforme inner join [dbo].[Cargo] c on c.IdCargo = uuc.IdCargo inner join [dbo].[Ues_Uniforme_Cargo_Dotacion] uucd on uucd.Id_Ues_Uniforme_cargo = uuc.Id_Ues_Uniforme_cargo inner join [dbo].[Dotacion] d on d.IdDotacion = uucd.IdDotacion
+        byUes: select u.Nombre as UES, u.IdUES, un.Nombre as Uniforme, un.IdUniforme, c.Nombre as Cargo ,c.IdCargo, d.Nombre as dotacion, d.Genero, d.Clima from [dbo].[Ues] as u inner join [dbo].[Ues_Uniforme] uu on uu.IdUes = u.IdUES inner join [dbo].[Uniforme] un on un.IdUniforme = uu.IdUniforme inner join [dbo].[Ues_Uniforme_Cargo] uuc on uuc.Id_Ues_Uniforme = uu.Id_Ues_Uniforme inner join [dbo].[Cargo] c on c.IdCargo = uuc.IdCargo inner join [dbo].[Ues_Uniforme_Cargo_Dotacion] uucd on uucd.Id_Ues_Uniforme_cargo = uuc.Id_Ues_Uniforme_cargo inner join [dbo].[Dotacion] d on d.IdDotacion = uucd.IdDotacion where u.IdUES = :idUes
+        byUesAndUniforme: select u.Nombre as UES, u.IdUES, un.Nombre as Uniforme, un.IdUniforme, c.Nombre as Cargo ,c.IdCargo, d.Nombre as dotacion, d.Genero, d.Clima from [dbo].[Ues] as u inner join [dbo].[Ues_Uniforme] uu on uu.IdUes = u.IdUES inner join [dbo].[Uniforme] un on un.IdUniforme = uu.IdUniforme inner join [dbo].[Ues_Uniforme_Cargo] uuc on uuc.Id_Ues_Uniforme = uu.Id_Ues_Uniforme inner join [dbo].[Cargo] c on c.IdCargo = uuc.IdCargo inner join [dbo].[Ues_Uniforme_Cargo_Dotacion] uucd on uucd.Id_Ues_Uniforme_cargo = uuc.Id_Ues_Uniforme_cargo inner join [dbo].[Dotacion] d on d.IdDotacion = uucd.IdDotacion where u.IdUES = :idUes AND un.IdUniforme = :idUniforme
+        byUesAndUniformeAndCargo: select u.Nombre as UES, u.IdUES, un.Nombre as Uniforme, un.IdUniforme, c.Nombre as Cargo ,c.IdCargo, d.Nombre as dotacion, d.Genero, d.Clima from [dbo].[Ues] as u inner join [dbo].[Ues_Uniforme] uu on uu.IdUes = u.IdUES inner join [dbo].[Uniforme] un on un.IdUniforme = uu.IdUniforme inner join [dbo].[Ues_Uniforme_Cargo] uuc on uuc.Id_Ues_Uniforme = uu.Id_Ues_Uniforme inner join [dbo].[Cargo] c on c.IdCargo = uuc.IdCargo inner join [dbo].[Ues_Uniforme_Cargo_Dotacion] uucd on uucd.Id_Ues_Uniforme_cargo = uuc.Id_Ues_Uniforme_cargo inner join [dbo].[Dotacion] d on d.IdDotacion = uucd.IdDotacion where u.IdUES = :idUes AND un.IdUniforme = :idUniforme AND c.IdCargo = :idCargo
+      tipoVinculacion:
+        all: SELECT idTipoVinculacion, FechaSistema, Nombre FROM Tipo_Vinculacion order by Nombre
+      regional:
+        all: SELECT idRegional, FechaSistema, Nombre, CentroLogistico, Almacen FROM Regional order by Nombre
+      incorporaciones:
+        byUserTipoSoliRegional: SELECT DISTINCT s.idSolicitud as idSolicitud, FORMAT(s.FechaRegistro, 'yy/MM/dd HH:mm') as fechaRegistro, s.DocumentoFuncionario as Documento, concat(z.PrimerApellido, ' ', z.SegundoApellido, ' ', z.PrimerNombre, ' ', z.SegundoNombre) as Nombre, z.Cargo, z.Genero, e.Nombre as estadoSolicitud, s.idRegional as idRegional,  s.idTipoVinculacion as idTipoVinculacion, s.Celular as celular, su.Sede as sede, su.Ciudad as ciudad, su.Direccion as direccion, s.Observaciones as observaciones, s.UsuarioRegistro as usuarioRegistro, r.Nombre as regional, tv.Nombre as tipoVinculacion, r.CentroLogistico as centroLogistico, r.Almacen as almacen, s.CentrodeCosto as centrodeCosto, s.reserva as reserva  FROM Solicitud s with(nolock) JOIN ZH z with(nolock) ON s.DocumentoFuncionario = z.NoDocumento JOIN Detalle_Solicitud ds with(nolock) ON ds.idSolicitud = s.idSolicitud JOIN Dotacion d with(nolock) ON d.IdDotacion = ds.idDotacion JOIN Tipo_Solicitud ts with(nolock) ON ts.idTipoSolicitud = s.idTipoSolicitud AND ts.Codigo = (SELECT Valor FROM Parametros p with(nolock) WHERE Nombre =:tipoSolicitud) JOIN Estado e with(nolock) ON e.idEstado = s.idEstado JOIN Sede_Ues su with(nolock) ON su.IdSede = s.idSede JOIN Regional r with(nolock) ON r.idRegional = s.idRegional JOIN Tipo_Vinculacion tv with(nolock) ON tv.idTipoVinculacion  = s.idTipoVinculacion WHERE s.UsuarioRegistro = :username AND r.Nombre = :regional
+        byUserTipoSoliFechas: SELECT DISTINCT s.idSolicitud as idSolicitud, FORMAT(s.FechaRegistro, 'yy/MM/dd HH:mm') as fechaRegistro, s.DocumentoFuncionario as Documento, concat(z.PrimerApellido, ' ', z.SegundoApellido, ' ', z.PrimerNombre, ' ', z.SegundoNombre) as Nombre, z.Cargo, z.Genero, e.Nombre as estadoSolicitud, s.idRegional as idRegional,  s.idTipoVinculacion as idTipoVinculacion, s.Celular as celular, su.Sede as sede, su.Ciudad as ciudad, su.Direccion as direccion, s.Observaciones as observaciones, s.UsuarioRegistro as usuarioRegistro, r.Nombre as regional, tv.Nombre as tipoVinculacion, r.CentroLogistico as centroLogistico, r.Almacen as almacen, s.CentrodeCosto as centrodeCosto, s.reserva as reserva  FROM Solicitud s with(nolock) JOIN ZH z with(nolock) ON s.DocumentoFuncionario = z.NoDocumento JOIN Detalle_Solicitud ds with(nolock) ON ds.idSolicitud = s.idSolicitud JOIN Dotacion d with(nolock) ON d.IdDotacion = ds.idDotacion JOIN Tipo_Solicitud ts with(nolock) ON ts.idTipoSolicitud = s.idTipoSolicitud AND ts.Codigo = (SELECT Valor FROM Parametros p with(nolock) WHERE Nombre =:tipoSolicitud) JOIN Estado e with(nolock) ON e.idEstado = s.idEstado JOIN Sede_Ues su with(nolock) ON su.IdSede = s.idSede JOIN Regional r with(nolock) ON r.idRegional = s.idRegional JOIN Tipo_Vinculacion tv with(nolock) ON tv.idTipoVinculacion  = s.idTipoVinculacion WHERE s.FechaRegistro >= :fechaIni AND s.FechaRegistro <= DATEADD(DAY,1,:fechaFin)
+        byUserTipoSoliRegionalFechas: SELECT DISTINCT s.idSolicitud as idSolicitud, FORMAT(s.FechaRegistro, 'yy/MM/dd HH:mm') as fechaRegistro, s.DocumentoFuncionario as Documento, concat(z.PrimerApellido, ' ', z.SegundoApellido, ' ', z.PrimerNombre, ' ', z.SegundoNombre) as Nombre, z.Cargo, z.Genero, e.Nombre as estadoSolicitud, s.idRegional as idRegional,  s.idTipoVinculacion as idTipoVinculacion, s.Celular as celular, su.Sede as sede, su.Ciudad as ciudad, su.Direccion as direccion, s.Observaciones as observaciones, s.UsuarioRegistro as usuarioRegistro, r.Nombre as regional, tv.Nombre as tipoVinculacion, r.CentroLogistico as centroLogistico, r.Almacen as almacen, s.CentrodeCosto as centrodeCosto, s.reserva as reserva FROM Solicitud s with(nolock) JOIN ZH z with(nolock) ON s.DocumentoFuncionario = z.NoDocumento JOIN Detalle_Solicitud ds with(nolock) ON ds.idSolicitud = s.idSolicitud JOIN Dotacion d with(nolock) ON d.IdDotacion = ds.idDotacion JOIN Tipo_Solicitud ts with(nolock) ON ts.idTipoSolicitud = s.idTipoSolicitud AND ts.Codigo = (SELECT Valor FROM Parametros p with(nolock) WHERE Nombre =:tipoSolicitud) JOIN Estado e with(nolock) ON e.idEstado = s.idEstado JOIN Sede_Ues su with(nolock) ON su.IdSede = s.idSede JOIN Regional r with(nolock) ON r.idRegional = s.idRegional JOIN Tipo_Vinculacion tv with(nolock) ON tv.idTipoVinculacion  = s.idTipoVinculacion WHERE r.Nombre = :regional AND s.FechaRegistro >= :fechaIni AND s.FechaRegistro <= DATEADD(DAY,1,:fechaFin)
+        pendientes: SELECT DISTINCT s.idSolicitud as idSolicitud, FORMAT(s.FechaRegistro, 'yy/MM/dd HH:mm') as fechaRegistro, s.DocumentoFuncionario as Documento, concat(z.PrimerApellido, ' ', z.SegundoApellido, ' ', z.PrimerNombre, ' ', z.SegundoNombre) as Nombre, z.Cargo, z.Genero, e.Nombre as estadoSolicitud, s.idRegional as idRegional,  s.idTipoVinculacion as idTipoVinculacion, s.Celular as celular, su.Sede as sede, su.Ciudad as ciudad, su.Direccion as direccion, s.Observaciones as observaciones, s.UsuarioRegistro as usuarioRegistro, r.Nombre as regional, tv.Nombre as tipoVinculacion, r.CentroLogistico as centroLogistico, r.Almacen as almacen, s.CentrodeCosto as centrodeCosto, s.reserva as reserva FROM Solicitud s with(nolock) JOIN ZH z with(nolock) ON s.DocumentoFuncionario = z.NoDocumento JOIN Detalle_Solicitud ds with(nolock) ON ds.idSolicitud = s.idSolicitud JOIN Dotacion d with(nolock) ON d.IdDotacion = ds.idDotacion JOIN Tipo_Solicitud ts with(nolock) ON ts.idTipoSolicitud = s.idTipoSolicitud AND ts.Codigo = (SELECT Valor FROM Parametros p with(nolock) WHERE Nombre =:tipoSolicitud) JOIN Estado e with(nolock) ON e.idEstado = s.idEstado JOIN Sede_Ues su with(nolock) ON su.IdSede = s.idSede JOIN Regional r with(nolock) ON r.idRegional = s.idRegional JOIN Tipo_Vinculacion tv with(nolock) ON tv.idTipoVinculacion  = s.idTipoVinculacion WHERE s.idEstado = (SELECT idEstado FROM Estado with(nolock) WHERE Nombre = (SELECT Valor FROM Parametros with(nolock) WHERE Nombre = 'PARAMETRO_SOLICITUD_PENDIENTE'))
+      solicitud:
+       registro: select u.idSolicitud from Solicitud u with(nolock) where DocumentoFuncionario = :documento
+       registroNoPendiente: select u.idSolicitud from Solicitud u with(nolock) where DocumentoFuncionario = :documento and u.idEstado NOT IN (SELECT e.idEstado FROM Estado e with(nolock)  where e.Nombre = 'PENDIENTE')
+       byDocument: select DISTINCT s.idSolicitud as idSolicitud, ts.Nombre as estadoSolicitud, s.Celular as celular, s.idRegional, s.idTipoVinculacion, su.Sede, , s.Observaciones as observaciones FROM Solicitud s with(nolock) JOIN Sede_Ues su with(nolock)  ON su.IdSede = s.idSede JOIN Detalle_Solicitud ds  with(nolock) ON ds.idSolicitud = s.idSolicitud JOIN Tipo_Solicitud ts with(nolock) ON ts.idTipoSolicitud = s.idTipoSolicitud  WHERE DocumentoFuncionario = :documento;
+       detalleDotacion: select DISTINCT d.IdDotacion, t.IdTalla FROM Solicitud s with(nolock) JOIN Sede_Ues su with(nolock)  ON su.IdSede = s.idSede JOIN Detalle_Solicitud ds  with(nolock) ON ds.idSolicitud = s.idSolicitud JOIN Dotacion d with(nolock) ON d.IdDotacion = ds.idDotacion JOIN Talla t  with(nolock) ON t.IdTalla = ds.idTalla WHERE DocumentoFuncionario = :documento
+      cantidadDotacion:
+       ByIdDotacion: SELECT cd.idDotacion as idDotacion, cd.idTipoVinculacion as idTipoVinculacion, tv.Nombre as nombreTipoVinculacion, cd.cantidad FROM Cantidad_Dotacion cd JOIN Tipo_Vinculacion tv on tv.idTipoVinculacion = cd.idTipoVinculacion WHERE cd.idDotacion = :idDotacion 
+    sp:
+      delDotacion: Sp_Del_Dotacion
+      guardaNuevaDotacion: Sp_Nueva_Dotacion
+      editarDotacion: Sp_Editar_Dotacion
+      borrarDotacion: Sp_Borrar_Dotacion
+      saveDotacion: Sp_Guarda_Dotacion
+      guardaNuevaCantidadDotacion: Sp_Crear_Cantidad_Dotacion
+      guardaEdicionCantidadDotacion: Sp_Editar_Cantidad_Dotacion
+      guardaNuevaSolicitud: Sp_Nueva_Solicitud
+      guardaNuevoDetalleSolicitud: Sp_Nuevo_Detalle_Solicitud
+      guardaSolicitudEditar: Sp_Actualizar_Solicitud
+      guardaDetalleSolicitudEditada: Sp_Actualizar_Detalle_Solicitud
+      getReport: Sp_Get_Dotacion
+      getReportDates: Sp_Get_Dotacion_Rango_Fechas
+      nuevaTalla: Sp_Nueva_Talla
+      asignaTalla: Sp_Asigna_Talla
+      desAsignaTalla: Sp_Des_Asigna_Talla
+      desAsignaPersonalizacion: Sp_Des_Asigna_Personalizacion
+      borrarPersonalizacion: Sp_Borrar_Usuario_Dotacion
+      editarTalla: Sp_Editar_Talla
+      borrarTalla: Sp_Borrar_Talla
+      UsuarioDotacion:
+      crearUsuarioDotacion: Sp_Nuevo_Usuario_Dotacion
+      editarUsuarioDotacion: Sp_Editar_Usuario_Dotacion
+      eliminarUsuarioDotacion: Sp_Borrar_Usuario_Dotacion
+      cargos:
+        crear:   sp_dotaciones_crear_cargo  
+        editar:  sp_dotaciones_editar_cargo
+        elimiar: sp_dotaciones_eliminar_cargo
+      ues:
+        saveUesPersonalized: sp_save_ues_personalized
+        deleteUesPerzonalized: sp_delete_ues_personalized
+        crear:   sp_dotaciones_crear_ues  
+        editar:  sp_dotaciones_editar_ues
+        elimiar: sp_dotaciones_eliminar_ues
+      sedesUes: 
+        crear:   sp_dotaciones_crear_sedes_ues  
+        editar:  sp_dotaciones_editar_sedes_ues
+        elimiar: sp_dotaciones_eliminar_sedes_ues
+      uniforme :
+        crear:   sp_dotaciones_crear_uniforme
+        editar:  sp_dotaciones_editar_uniforme
+        elimiar: sp_dotaciones_eliminar_uniforme
+  validations:
+    existDotacion: true
+    pathFiles: C:\\temp\\
+  constants:
+    code:
+      successProcess: 200
+      errorProcess: 400
+      exception: 500
+  elk:
+    endpoint: http://20.96.202.69:8080/v1.0 
+    token: /auth
+    logger: /registerlog/
+    user: admin-dotaciones
+    pass: Dotaciones2021*
+    app: app-dotaciones
+    index: api-dotaciones
+jwt:
+  privateKey: bzies5Sd0aZYagYzRVEu2WuA5ZnuPgaw
+service:
+    users:
+        url: http://ssoempleados.colsubsidio.com:18080/ColsubsidioSSO
+        create: /json/authenticate
+        valid: /identity/isTokenValid
+        exists: /json/users/
+        tokenlife: PT1H    
+logging:
+  level:
+    com:
+      colsubsidio:
+        dotaciones: ERROR
+enviroment: develop
